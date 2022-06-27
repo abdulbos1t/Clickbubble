@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+  background-color: green;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  position: absolute;
+  transition: .5s;
+  cursor: pointer;
+}
+.red-bg{
+  background-color: red;
+}
+    </style>
+</head>
+<body>
+    
+    <h1>0</h1>
+    <div></div>
+
+    <script>
+        const div = document.querySelector('div')
+const h1 = document.querySelector('h1')
+function changePosition(){
+  
+  const topHeight = Math.floor(Math.random() * window.innerHeight)
+  const leftWidth = Math.floor(Math.random() * window.innerWidth)
+  div.style.top = `${topHeight}px`
+  div.style.left = `${leftWidth}px`
+}
+setInterval(() => {
+  changePosition()
+}, 1000);
+
+let counter = 0
+div.addEventListener('click', () =>{
+  counter++
+  h1.textContent = counter
+  div.classList.add('red-bg')
+  setTimeout(() => {
+    div.classList.remove('red-bg')
+  }, 1000);
+} )
+    </script>
+</body>
+</html>
